@@ -1,0 +1,172 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i");
+@import url("https://use.fontawesome.com/releases/v5.1.1/css/all.css");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+*:first-child {
+  margin-top: 0;
+}
+
+*:last-child {
+  margin-bottom: 0;
+}
+
+body {
+  background-color: #fafafa;
+  color: #555;
+  font-family: "Lato";
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: #c90a10;
+}
+
+.app {
+  background-color: #fafafa;
+  height: 100vh;
+  width: 100vw;
+}
+
+.app__logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.app__header {
+  background-color: #eee;
+  color: #333;
+  height: 100px;
+}
+
+.app__title {
+  font-size: 1.5em;
+  line-height: 100px;
+  margin: 0;
+}
+
+.app__intro {
+  font-size: large;
+}
+
+.app__title,
+.app__main {
+  margin: 0 auto;
+  width: 800px;
+}
+
+.article {
+  animation: slideUpFadeIn 0.8s ease-out;
+  background-color: #fff;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+  margin: 2rem 0;
+}
+
+.article--creating,
+.article--deleting {
+  opacity: 0.5;
+}
+
+.article__header > h1 {
+  font-weight: 800;
+  margin: 0;
+}
+
+.article__header {
+  border-bottom: 1px solid #eee;
+  margin: 0 2em;
+  padding: 2rem 0 1rem;
+}
+
+.article__content {
+  line-height: 1.7em;
+  margin: 0 2rem;
+  padding: 1rem 0 2rem;
+}
+
+.article__footer {
+  margin: 0 2rem;
+  padding: 1rem 0 2rem;
+  text-align: right;
+}
+
+.text--secondary {
+  color: #c90a10;
+  font-weight: normal;
+}
+
+.loading-spinner {
+  animation: spin 2s infinite linear;
+  color: #ddd;
+  display: block;
+  font-size: 100px;
+  height: 100px;
+  margin: 0 auto;
+  text-align: center;
+  transform-origin: 50% 63%;
+  width: 100px;
+}
+
+@keyframes slideUpFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+code {
+  background-color: #fafafa;
+  display: block;
+  font-size: 0.8rem;
+  line-height: 1.3em;
+  max-width: 100%;
+  overflow: auto;
+  padding: 1rem;
+}
+
+.button {
+  background-color: #333;
+  border-radius: 3px;
+  color: #eee;
+  cursor: pointer;
+  display: inline-block;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  user-select: none;
+}
+
+.button:hover {
+  background-color: #555;
+}
+
+.button--danger {
+  background-color: #c90a10;
+}
+
+.button--danger:hover {
+  background-color: #e22f35;
+}
+
+.button--danger:active,
+.button--danger:focus {
+  background-color: #aa090f;
+}
