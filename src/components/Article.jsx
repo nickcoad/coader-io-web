@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import Button from "./Button";
+import RelativeTime from "react-relative-time";
+import Button from "./forms/Button";
 
 export default class Article extends Component {
   handleArticleDelete = () => {
@@ -18,7 +19,13 @@ export default class Article extends Component {
       <div className={articleClasses}>
         <div className="article__header">
           <h1>{article.title}</h1>
-          <span>{article.created_at}</span>
+          <span className="article__header-timestamp">
+            {
+              article.creating
+                ? (<React.Fragment>Posting...</React.Fragment>) 
+                : (<React.Fragment>Posted <RelativeTime value={article.created_at} titleFormat="D/MM/YYYY @ H:m"/></React.Fragment>)
+            }
+          </span>
         </div>
         <div
           className="article__content"

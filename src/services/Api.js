@@ -23,12 +23,12 @@ export default class Api {
 
       const url = `${this.API_URL}/api/articles`;
 
-      axios.post(url, newArticle).then(function(response) {
-        console.log("Article saved.", response);
-        resolve(response.data);
+      axios.post(url, newArticle).then(response => {
+        console.log("Article created.");
+        resolve({  data:response.data, article: newArticle });
       });
     });
-  };
+  }
 
   deleteArticle = deleteArticle => {
     return new Promise((resolve, reject) => {
@@ -38,6 +38,19 @@ export default class Api {
 
       axios.delete(url).then(function(response) {
         console.log("Article deleted.");
+        resolve({  data:response.data, article: deleteArticle });
+      });
+    });
+  };
+
+  authenticate = (username, password) => {
+    return new Promise((resolve, reject) => {
+      console.log("Authenticating...");
+
+      const url = `${this.API_URL}/api/authenticate/`;
+
+      axios.post(url, { username, password }).then(function(response) {
+        console.log("Authenticated.");
         resolve(response.data);
       });
     });

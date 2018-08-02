@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import ReactMde from "react-mde";
 import Showdown from "showdown";
-import Button from "./Button";
+import Button from "./forms/Button";
+import TextInput from "./forms/TextInput";
 import Api from "../services/Api";
 
 export default class ArticleEditor extends Component {
@@ -34,7 +35,7 @@ export default class ArticleEditor extends Component {
     };
 
     onArticleCreating(newArticle);
-    api.createArticle(newArticle).then(onArticleCreated);
+    api.createArticle(newArticle).then((response, newArticle) => onArticleCreated(response, newArticle));
   };
 
   handleArticleTitleChange = event => {
@@ -44,7 +45,7 @@ export default class ArticleEditor extends Component {
   render() {
     return (
       <div className="article-editor">
-        <input type="text" onChange={this.handleArticleTitleChange} />
+        <TextInput onChange={this.handleArticleTitleChange} />
         <ReactMde
           onChange={this.handleValueChange}
           editorState={this.state.mdeState}
